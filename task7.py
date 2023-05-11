@@ -4,12 +4,7 @@
 
 def move_zeros(lst):
     # Здесь нужно написать код
-    for i in lst:
-        if i == 0:
-            lst.remove(i)
-            lst.append(i)
-        else:
-            continue
+    lst.sort(key=lambda val: val == 0)
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

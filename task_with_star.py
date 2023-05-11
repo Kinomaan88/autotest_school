@@ -10,38 +10,38 @@
 # 379 --> 879
 # 15 --> 75
 # 4974 --> 7974
-
 def max_division_by_3(num):
     # Здесь нужно написать код
     stroka = []
-    new_num = []
+    str_num = []
     x = 0
     a = 0
     for i in str(num):
         stroka.append(int(i))
     for k in stroka:
-        while stroka[x] != 9:
-            stroka[x] = stroka[x] + 1
-            new_num.append(''.join(map(str, stroka)))
+        for c in range(1, 10):
+            stroka[x] = c
+            if ''.join(map(str, stroka)) != str(num):
+                str_num.append(''.join(map(str, stroka)))
+            else:
+                continue
         stroka[x] = k
-        new_num.sort()
-        new_num.reverse()
         x += 1
-    while int(new_num[a]) % 3 != 0:
+        str_num.sort(reverse=True)
+    while int(str_num[a]) % 3 != 0:
         a += 1
-    new_num = int(new_num[a])
-
+    new_num = int(str_num[a])
     return new_num
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
 data = [
-    379, 810, 981, 4974, 996, 9000, 15, 0, 9881, 9984, 9876543210, 98795432109879543210
+    379, 999, 810, 981, 4974, 996, 9000, 15, 0, 9881, 9984, 9876543210, 98795432109879543210
 ]
 
 test_data = [
-    879, 870, 987, 7974, 999, 9900, 75, 9, 9981, 9987, 9879543210, 98798432109879543210
+    879, 996, 870, 987, 7974, 999, 9900, 75, 9, 9981, 9987, 9879543210, 98798432109879543210
 ]
 
 

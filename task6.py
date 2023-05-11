@@ -5,10 +5,7 @@
 
 def create_phone_number(num_tuple):
     # Здесь нужно написать ко
-    stroka = ''
-    for i in num_tuple:
-        stroka += str(i)
-    str_phone = '({}{}{}) {}{}{}-{}{}{}{}'.format(*stroka)
+    str_phone = '({}{}{}) {}{}{}-{}{}{}{}'.format(*num_tuple)
     return str_phone
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
