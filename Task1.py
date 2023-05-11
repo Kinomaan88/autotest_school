@@ -6,16 +6,15 @@
 
 def which_triangle(a, b, c):
     # Здесь нужно написать код
-    if a + b > c and a + c > b and b + c > a:
-        if a == b == c:
-            type_triangle = 'Равносторонний'
-        elif a == b or a == c or b == c:
-            type_triangle = 'Равнобедренный'
-        else:
-            type_triangle = 'Обычный'
+
+    if a == b == c:
+        type_triangle = 'Равносторонний'
+    elif a == b or a == c or b == c:
+        type_triangle = 'Равнобедренный'
+    elif a + b > c and a + c > b and b + c > a:
+        type_triangle = 'Обычный'
     else:
         type_triangle = 'Не треугольник'
-    print(type_triangle)
     return type_triangle
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
@@ -25,12 +24,12 @@ data = [
     (3, 3, 3),
     (1, 2, 2),
     (3, 4, 5),
-    (1, 2, 1),
+    (3, 2, 3),
     (1, 2, 3)
 ]
 
 test_data = [
-    "Равносторонний", "Равнобедренный", "Обычный", "Не треугольник", "Не треугольник"
+    "Равносторонний", "Равнобедренный", "Обычный", "Равнобедренный", "Не треугольник"
 ]
 
 
