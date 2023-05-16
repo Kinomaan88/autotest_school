@@ -28,16 +28,15 @@ def everything_for_your_cat(cats_data):
     """
     # Здесь нужно написать код
     our_str = ''  # Переменная под будущий вывод
-    xoz_pet = {xoz[-2] + ' ' + xoz[-1]: [] for xoz in cats_data}  # Создаю словарь с ключом Имя Фамилия
+    human_pet = {}  # Создаю словарь
     # Цикл наполняет словарь значениями: питомец возраст
-    for xoz in cats_data:
-        for key, value in xoz_pet.items():
-            if xoz[-2] + ' ' + xoz[-1] in key:
-                xoz_pet[key].append(f'{xoz[0]}, {xoz[1]}')
+    for human in cats_data:
+        human_pet[human[-2] + ' ' + human[-1]] = \
+            human_pet.get(human[-2] + ' ' + human[-1], []) + [f'{human[0]}, {human[1]}']
     # Циклом собираю строку по формату задания
-    for key in xoz_pet:
+    for key in human_pet:
         str_1 = f'{key}: '
-        for pet in xoz_pet.get(key):
+        for pet in human_pet.get(key):
             str_1 += f'{pet}; '
         our_str += f'{str_1[:-2]}\n'
     return our_str
