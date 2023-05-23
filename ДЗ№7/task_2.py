@@ -32,10 +32,7 @@ class PersonInfo:
         """
         self.name = name
         self.age = age
-        self.path = []
-        # Цикл собирает остальные параметры в подразделение
-        for path in args:
-            self.path.append(path)
+        self.path = list(args)
 
     def short_name(self):
         """
@@ -43,18 +40,14 @@ class PersonInfo:
         :return: возвращает строку name
         """
         name = self.name.split(' ')
-        name = f'{name[1]} {name[0][:1]}.'
-        return name
+        return f'{name[1]} {name[0][:1]}.'
 
     def path_deps(self):
         """
         Формирует путь до отдела сотрудника по формату Головное подразделение --> ... --> Конечное подразделение
         :return: путь до отдела сотрудника
         """
-        path_loc = ''
-        for key in self.path:
-            path_loc += f'{key} --> '
-        return path_loc[:-5]
+        return ' --> '.join(self.path)
 
     def new_salary(self):
         """

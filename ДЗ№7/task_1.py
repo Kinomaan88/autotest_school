@@ -28,27 +28,23 @@ class Segment:
         :return: Длинна отрезка с округлением до 2 знаков после запятой
         """
         dist = ((self.x2 - self.x1)**2 + (self.y2 - self.y1)**2)**0.5
-        return round(dist, 2)  # возвращает длину нашего отрезка, с округлением до 2 знаков после запятой
+        return round(dist, 2)
 
     def x_axis_intersection(self):
         """
         Метод вычисляет пересечение с осью абцисс
         :return: True или False
         """
-        if self.x1 * self.x2 <= 0:
-            return True
-        else:
-            return False
+        return self.x1 * self.x2 <= 0
+
 
     def y_axis_intersection(self):
         """
         Метод вычисляет пересечение с осью ординат
         :return: True или False
         """
-        if self.y1 * self.y2 <= 0:
-            return True
-        else:
-            return False
+        return self.y1 * self.y2 <= 0
+
 
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

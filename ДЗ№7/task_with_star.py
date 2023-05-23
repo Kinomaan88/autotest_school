@@ -9,8 +9,6 @@
 # RomanNums('CMXCIX').is_palindrome() --> True
 
 # Здесь пишем код
-import roman
-
 
 class RomanNums:
 
@@ -22,21 +20,25 @@ class RomanNums:
         Перовдит римские цифры в арабские
         :return: Арабские цифры
         """
-        rom = roman.fromRoman(self.str_rim)
-        return rom
+        romanNumeral = ((1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
+                        (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
+                        (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I'))
+        result = 0
+        for arab, rom in romanNumeral:
+            while self.str_rim.startswith(rom):
+                result += arab
+                self.str_rim = self.str_rim[len(rom):]
+        return result
 
     def is_palindrome(self):
         """
         Определяет, является ли арабское число палиндромом
         :return: True или False
         """
-        rom = roman.fromRoman(self.str_rim)  # Переводит римское число в арабское
-        rom2 = str(rom)
-        # Проверяет число палиндромом или нет
-        if rom == int(rom2[::-1]):
-            return True
-        else:
-            return False
+        arab = self.from_roman()  # Переводит римское число в арабское
+        arab = str(arab)
+        return arab == arab[::-1]
+
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
