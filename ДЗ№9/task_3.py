@@ -6,12 +6,11 @@
 # Здесь пишем код
 sum_purchases = [0, 0, 0]
 summa = 0
-three_most_expensive_purchases = 0
 with open("test_file/task_3.txt", 'r', encoding='utf-8') as file:
-    # Цикл проходит по строкам и суммирует все до первой пустой строки.
+    # Цикл проходит по строкам и суммирует все до первой пустой строки после чего заносит сумму чисел в список.
     for price in file:
-        if len(price) > 1:
-            summa += int(price[:-1])
+        if price != '\n':
+            summa += int(price)
         elif summa > min(sum_purchases):
             index = sum_purchases.index(min(sum_purchases))
             sum_purchases[index] = summa
