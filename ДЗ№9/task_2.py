@@ -32,7 +32,7 @@
 
 
 from datetime import datetime
-
+import time
 
 # Здесь пишем код
 
@@ -48,7 +48,7 @@ def func_log(file_log='log.txt'):
             dt = datetime.now()  # Получаю текущую дату
             with open(file_log, 'a+', encoding='utf-8') as file:
                 file.write(f'{func.__name__} вызвана {dt.strftime("%a, %d %b %Y %H:%M:%S")}\n')
-            return func
+            func()
         # сохраняю информацию об исходной функции
         wrapper.__module__ = func.__module__
         wrapper.__name__ = func.__name__
@@ -64,7 +64,7 @@ def func1():
     """
     Что то делает
     """
-    pass
+    time.sleep(3)
 
 
 @func_log(file_log='func2.txt')
@@ -72,7 +72,7 @@ def func2():
     """
     Что то делает
     """
-    pass
+    time.sleep(5)
 
 
 func1()
