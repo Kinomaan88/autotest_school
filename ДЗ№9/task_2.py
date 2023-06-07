@@ -32,7 +32,7 @@
 
 
 from datetime import datetime
-
+import time
 
 # Здесь пишем код
 
@@ -44,11 +44,12 @@ def func_log(file_log='log.txt'):
         :param file_log:
         :return:
         """
-        def wrapper():
+        def wrapper(*args, **kwargs):
             dt = datetime.now()  # Получаю текущую дату
             with open(file_log, 'a+', encoding='utf-8') as file:
                 file.write(f'{func.__name__} вызвана {dt.strftime("%a, %d %b %Y %H:%M:%S")}\n')
-            return func
+            res = func(*args, **kwargs)
+            return res
         # сохраняю информацию об исходной функции
         wrapper.__module__ = func.__module__
         wrapper.__name__ = func.__name__
@@ -60,21 +61,22 @@ def func_log(file_log='log.txt'):
 
 
 @func_log()
-def func1():
+def func1(*args):
     """
     Что то делает
     """
-    pass
-
+    time.sleep(3)
+    return 5
 
 @func_log(file_log='func2.txt')
-def func2():
+def func2(param=4, *args):
     """
     Что то делает
     """
-    pass
-
+    time.sleep(5)
+    return param
 
 func1()
 func2()
 func1()
+
