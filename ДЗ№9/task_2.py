@@ -47,7 +47,7 @@ def func_log(file_log='log.txt'):
         def wrapper(*args, **kwargs):
             dt = datetime.now()  # Получаю текущую дату
             with open(file_log, 'a+', encoding='utf-8') as file:
-                file.write(f'{func.__name__} вызвана {dt.strftime("%a, %d %b %Y %H:%M:%S")}\n')
+                file.write(f'{func.__name__} вызвана {dt.strftime("%d.%m %H:%M:%S")}\n')
             res = func(*args, **kwargs)
             return res
         # сохраняю информацию об исходной функции
